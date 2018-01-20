@@ -59,8 +59,12 @@ const ScrollableMethods = class ScrollableMethods {
 };
 
 export const getHeight = (height: string | number, base: ?number) => {
-  const ratio = (base) ? parseFloat(height) / 100 : parseFloat(height);
-  return (base) ? Math.round((base * ratio)) : ratio;
+  if (typeof(height) === 'string' && !height.contains('%')) { 
+        return parseFloat(height); 
+  } else {
+        const ratio = (base) ? parseFloat(height) / 100 : parseFloat(height);
+        return (base) ? Math.round((base * ratio)) : ratio;
+  }
 };
 
 export const getDefaultValues = (height: string | number = '30%') => ({
