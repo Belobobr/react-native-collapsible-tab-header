@@ -59,7 +59,7 @@ const ScrollableMethods = class ScrollableMethods {
 };
 
 export const getHeight = (height: string | number, base: ?number) => {
-  if (typeof(height) === 'string' && !height.contains('%')) { 
+  if (typeof(height) === 'string' && !height.includes('%')) { 
         return parseFloat(height); 
   } else {
         const ratio = (base) ? parseFloat(height) / 100 : parseFloat(height);
